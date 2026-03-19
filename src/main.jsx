@@ -7,7 +7,5 @@ import './index.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 createRoot(document.getElementById('root')).render(
-    <HashRouter>
-        <P76App />
-    </HashRouter>
+    <P76App />
 )
