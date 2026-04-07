@@ -10,15 +10,31 @@ export default function DemoShowcase(){
     const [likes, setLikes] = useState(0);
     const [dislikes, setDislikes] = useState(0);
     const [buttonPressed, setButtonState] = useState(false);
+    const [likeButtonPressed, setLikeButtonState] = useState(false);
+    const [dislikeButtonPressed, setDislikeButtonState] = useState(false);
 
     function handleLike() {
         setLikes(oLikes => oLikes + 1)
         setButtonState(true);
+        setLikeButtonState(true);
+    }
+
+    function handleLikeAgain() {
+        setLikes(oLikes => oLikes - 1)
+        setButtonState(false);
+        setLikeButtonState(false);
     }
 
     function handleDislike() {
         setDislikes(oDislikes => oDislikes + 1)
         setButtonState(true);
+        setDislikeButtonState(true);
+    }
+
+    function handleDislikeAgain() {
+        setDislikes(oDislikes => oDislikes - 1)
+        setButtonState(false);
+        setDislikeButtonState(false);
     }
 
     return <div>
@@ -54,8 +70,8 @@ export default function DemoShowcase(){
         </Card>
         <Card style={{margin: "auto", marginTop: "1rem", maxWidth: "40rem"}}>
             <p><strong>{likes} likes</strong> | <strong>{dislikes} dislikes</strong></p>
-            <Button onClick={handleLike} disabled={buttonPressed}>{buttonPressed ? "Thank you" : "Like this Review"}</Button>
-            <Button variant="danger" onClick={handleDislike} disabled={buttonPressed}>{buttonPressed ? "Thank you" : "Dislike this Review"}</Button>
+            <Button onClick={likeButtonPressed ? handleLikeAgain : handleLike} disabled={dislikeButtonPressed}>{buttonPressed ? "Thank you" : "Like this Review"}</Button>
+            <Button variant="danger" onClick={dislikeButtonPressed ? handleDislikeAgain : handleDislike} disabled={likeButtonPressed}>{buttonPressed ? "Thank you" : "Dislike this Review"}</Button>
         </Card>
     </div>
 }
