@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { Button, Card, Carousel } from "react-bootstrap";
-import GameCommentSection from "../content/GameCommentSection";
+import GameCommentSection from "./GameCommentSection";
 
-export default function DemoShowcase(){
+export default function IndividualGamePage(props){
 
     /* Change all of this so it takes input to make multiple pages of the stuff (ex Student from hw4).
     *  Change the like and dislike so they are sent and pulled from an API.
@@ -13,7 +13,6 @@ export default function DemoShowcase(){
     const [buttonPressed, setButtonState] = useState(false);
     const [likeButtonPressed, setLikeButtonState] = useState(false);
     const [dislikeButtonPressed, setDislikeButtonState] = useState(false);
-    const [testComments, setTestComments] = useState([{user : "tester", comment : "testing"}, {user : "tester2", comment : "testing2"}])
 
     function handleLike() {
         setLikes(oLikes => oLikes + 1)
@@ -75,6 +74,6 @@ export default function DemoShowcase(){
             <Button onClick={likeButtonPressed ? handleLikeAgain : handleLike} disabled={dislikeButtonPressed}>{buttonPressed ? "Thank you" : "Like this Review"}</Button>
             <Button variant="danger" onClick={dislikeButtonPressed ? handleDislikeAgain : handleDislike} disabled={likeButtonPressed}>{buttonPressed ? "Thank you" : "Dislike this Review"}</Button>
         </Card>
-        <GameCommentSection comments={testComments}/>
+        <GameCommentSection comments={props.comments}/>
     </div>
 }

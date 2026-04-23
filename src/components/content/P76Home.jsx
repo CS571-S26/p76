@@ -25,7 +25,7 @@ function P76Home() {
             <Card>
                 <Form>
                     <Form.Label htmlFor="gameName">Here is all the game reviews on the site!</Form.Label>
-                    <Form.Control id="gameName"  value={gameName} onChange={(e) => setName(e.target.value)}></Form.Control>
+                    <Form.Control id="gameName"  value={gameName} placeholder ="Search here" onChange={(e) => setName(e.target.value)}></Form.Control>
                 </Form>
                 <p><Link to="demoShowcase">Here is what a page on a game will look like!</Link></p>
                 {/* Change this so all game reviews that are related to the search (maybe tags alongside names?) appear. */}
