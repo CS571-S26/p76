@@ -31,7 +31,7 @@ function P76Home() {
                     <Form.Label htmlFor="gameName">Here are all the game reviews on the site!</Form.Label>
                     <Form.Control id="gameName"  value={gameName} placeholder ="Search here" onChange={(e) => setName(e.target.value)}></Form.Control>
                 </Form>
-                {gameReviews.filter(game => game.game.toLowerCase().includes(gameName.toLowerCase)).sort((a, b) => a.game.localeCompare(b.game, { sensitivity: 'base' })).map(game => (
+                {gameReviews.filter(game => game.game.toLowerCase().includes(gameName) || game.game.includes(gameName)).sort((a, b) => a.game.localeCompare(b.game, { sensitivity: 'base' })).map(game => (
                     <p key={game.id}>
                         <Link to={`/review/${game.id}`}>{game.game}</Link>
                     </p>
