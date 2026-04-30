@@ -1,5 +1,9 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button, Card, Carousel } from "react-bootstrap";
+import { useParams } from "react-router";
+import { doc, updateDoc, increment, onSnapshot } from "firebase/firestore";
+
+import { gameDatabase } from "../structural/firebaseP76";
 import GameCommentSection from "./GameCommentSection";
 
 export default function IndividualGamePage(props){
@@ -8,72 +12,80 @@ export default function IndividualGamePage(props){
     *  Change the like and dislike so they are sent and pulled from an API.
     */
 
-    const [likes, setLikes] = useState(0);
-    const [dislikes, setDislikes] = useState(0);
+    const { gameId } = useParams();
+    const [game, setGame] = useState(null);
     const [buttonPressed, setButtonState] = useState(false);
     const [likeButtonPressed, setLikeButtonState] = useState(false);
     const [dislikeButtonPressed, setDislikeButtonState] = useState(false);
 
-    function handleLike() {
-        setLikes(oLikes => oLikes + 1)
+    useEffect(() => {
+        const docRef = doc(gameDatabase, "gamereviews", gameId);
+
+        const unsubscribe = onSnapshot(docRef, (docSnap) => {
+            if (docSnap.exists()) {
+                setGame(docSnap.data());
+            }
+        });
+
+        return () => unsubscribe();
+    }, [gameId]);
+
+    async function handleLike() {
+        const docRef = doc(gameDatabase, "gamereviews", gameId);
+        await updateDoc(docRef, {
+            likes: increment(1)
+        });
         setButtonState(true);
         setLikeButtonState(true);
     }
 
-    function handleLikeAgain() {
-        setLikes(oLikes => oLikes - 1)
+    async function handleLikeAgain() {
+        const docRef = doc(gameDatabase, "gamereviews", gameId);
+        await updateDoc(docRef, {
+            likes: increment(-1)
+        });
         setButtonState(false);
         setLikeButtonState(false);
     }
 
-    function handleDislike() {
-        setDislikes(oDislikes => oDislikes + 1)
+    async function handleDislike() {
+        const docRef = doc(gameDatabase, "gamereviews", gameId);
+        await updateDoc(docRef, {
+            dislikes: increment(1)
+        });
         setButtonState(true);
         setDislikeButtonState(true);
     }
 
-    function handleDislikeAgain() {
-        setDislikes(oDislikes => oDislikes - 1)
+    async function handleDislikeAgain() {
+        const docRef = doc(gameDatabase, "gamereviews", gameId);
+        await updateDoc(docRef, {
+            dislikes: increment(-1)
+        });
         setButtonState(false);
         setDislikeButtonState(false);
     }
+    if (!game) return <p>Loading...</p>;
 
     return <div>
-        <h1>Here would be a game title</h1>
+        <h1>{game.game}</h1>
         <Carousel interval={null}>
-            <Carousel.Item style={{backgroundColor: 'black'}}>
-                <Card style={{backgroundColor: 'black'}}>
-                    <p style={{color: "white"}}>Here would be an image</p>
-                    <br/>
-                </Card>
-            </Carousel.Item>
-            <Carousel.Item style={{backgroundColor: 'black'}}>
-                <Card style={{backgroundColor: 'black'}}>
-                    <p style={{color: "white"}}>Here would be another image</p>
-                    <br/>
-                </Card>
-            </Carousel.Item>
-            <Carousel.Item style={{backgroundColor: 'black'}}>
-                <Card style={{backgroundColor: 'black'}}>
-                    <p style={{color: "white"}}>Here would be a third image</p>
-                    <br/>
-                </Card>
-            </Carousel.Item>
-            <Carousel.Item style={{backgroundColor: 'black'}}>
-                <Card style={{backgroundColor: 'black'}}>
-                    <p style={{color: "white"}}>There would probably be an image here</p>
-                    <br/>
-                </Card>
-            </Carousel.Item>
+            {game.images.map((image, index) => (
+                <Carousel.Item key={index} style={{backgroundColor: 'black'}}>
+                    <Card style={{backgroundColor: 'black'}}>
+                        <img src={image} alt={`${game.game} image ${index}`} style={{width: 'auto', height: "600px", margin: "0 auto"}}/>
+                    </Card>
+                </Carousel.Item>
+            ))}
         </Carousel>
         <Card style={{margin: "auto", marginTop: "1rem", maxWidth: "40rem"}}>
-            <p>Here would be a short spoilerfree review</p>
+            <p>{game.review}</p>
         </Card>
         <Card style={{margin: "auto", marginTop: "1rem", maxWidth: "40rem"}}>
-            <p><strong>{likes} likes</strong> | <strong>{dislikes} dislikes</strong></p>
+            <p><strong>{game.likes} likes</strong> | <strong>{game.dislikes} dislikes</strong></p>
             <Button onClick={likeButtonPressed ? handleLikeAgain : handleLike} disabled={dislikeButtonPressed}>{buttonPressed ? "Thank you" : "Like this Review"}</Button>
             <Button variant="danger" onClick={dislikeButtonPressed ? handleDislikeAgain : handleDislike} disabled={likeButtonPressed}>{buttonPressed ? "Thank you" : "Dislike this Review"}</Button>
         </Card>
-        <GameCommentSection comments={props.comments}/>
+        <GameCommentSection gameId={gameId} comments={game.comments}/>
     </div>
 }

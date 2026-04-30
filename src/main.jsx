@@ -5,7 +5,13 @@ import { HashRouter, } from 'react-router';
 
 import './index.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { GameReviewProvider } from './components/contexts/GameReviewsContext';
+import { ReviewUsernameProvider } from "./components/contexts/ReviewUsernameContext";
 
 createRoot(document.getElementById('root')).render(
-    <P76App />
+    <GameReviewProvider>
+    <ReviewUsernameProvider>
+        <P76App />
+    </ReviewUsernameProvider>
+    </GameReviewProvider>
 )

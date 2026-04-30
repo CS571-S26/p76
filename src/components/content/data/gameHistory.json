@@ -1,15 +1,63 @@
 [
     {
-        "des": "This is the first slide description",
-        "title": "Tester 1"
+        "des": "Tennis for Two is just one of many attempts to prototype computers to play games. It is interesting in comparison to many other attempts in that it was aiming to replicate tennis instead of more brain testing games like chess or checkers. The game was an important test in computer sciences that reflected future games such as Pong.",
+        "title": "1958: Tennis for Two"
     },
     {
-        "des": "This is the second slide description",
-        "title": "Tester 2"
+        "des": "Spacewar! was the first truly standalone computer-based video game, being a sci-fi shooter. It would spread across the United States and cause several lookalikes. It would even inspire \"Computer Space\" the first arcade cabinet.",
+        "title": "1962: Spacewar!"
     },
     {
-        "des": "This is the third slide description",
-        "title": "Tester 3"
+        "des": "The Magnavox-Odyssey was the first home video game console released, thus starting the entire concept. The graphics were a far cry from todays, with the Odyssey only capable of displaying a single line and 3 dots. 2 dots were controled by the player while the line and remaining dot were controlled by the console. The console even used plastic overlays to create visuals, but it still is an important piece of video game history.",
+        "title": "1972: Magnavox-Odyssey"
+    },
+    {
+        "des": "From 1972 onward the video game market was becoming a powerful enterprise. However an oversaturated market alongside a booming personal computer market caused the market to begin crashing, particularly in the states. This crash could have spelled the end for the video game market as a whole if something did not stop it.",
+        "title": "1983: Video Game Market Crash"
+    },
+    {
+        "des": "In 1985 Nintendo released their \"Nintendo Family Computer\" in the west as the \"Nintendo Entertainment System\". Due to the crashing market the competition found itself being steamrolled as the NES became extremely popular, revitilizing the home console market. The major difference between Nintendo and its' competitors was Nintendo's usage of third parties to develop games. This choice would work to shape the modern market.",
+        "title": "1985: Nintendo saves the day"
+    },
+    {
+        "des": "This is the year the Sega created Sonic the Hedgehog, the iconic flagship character that allowed them to more directly compete with Nintendo's dominance at the time. Before this the Sega Genesis released in 1988(Japan) and 1989(North America), and Sega had been selling consoles since 1983. But the creation of Sonic gave them a direct sort of competition, which they featured heavily in advertising.",
+        "title": "1991: Sega does what Nintendon't"
+    },
+    {
+        "des": "1993 was the year that video game rating became instated and the year Doom was released. The rating system came about due to games such as Mortal Combat and outraged parents calling for a system to help protect their children. On the other hand Doom, while not being the first, is credited as a founder of the \"First Person Shooter\" of today.",
+        "title": "1993: Ratings and Doom"
+    },
+    {
+        "des": "The Playstation was the tech company Sony's entry into the video game console market. It was spawned from a failed deal between Nintendo and Sony, and would end up competeting with Nintendo's \"Nintendo 64\". It would also mark Sony's entrance into the console wars, which they have remained a competetor in since.",
+        "title": "1995: The Playstation"
+    },
+    {
+        "des": "2001 is a year where the console wars were changed significantly. Sega, who had been a longstanding member, decided to drop out of console development and focus on developing games for their competitors. However the American tech company Microsoft would release their own console, the Xbox, entering into the conflict themselves.",
+        "title": "2001: Sega out, Microsoft in"
+    },
+    {
+        "des": "July 6, 2003, The date of my birth. A few months later, in September, Valve would release the computer gaming platform Steam. Steam allowed user to manage and download games with signficantly greater ease than the previously used disk system. This revolutionary system increased the quality of life of video game enjoyers who used their own personal computers for gaming.",
+        "title": "2003: My birth and Steam's creation"
+    },
+    {
+        "des": "On a warm day in 2006, young me was hanging out with a close family. I was watching them play the recently released Super Smash Bros Melee on the Nintendo Gamecube hooked up to the living room tv at their house. I decided that I wanted to play, despite being three and having no idea what I was doing. It was a truly painful experience that ended in several bitter defeats, however it was also the beginning of my love of video games as a medium of entertainment.",
+        "title": "2006: My first game, Super Smash Bros Melee"
+    },
+    {
+        "des": "For the majority of my childhood, my father was an avid player of the incredibly popular MMO (Massively Multiplayer Online) game World of Warcraft. Eventually I was allowed to play for myself, and it would start my journey in playing video games on computers instead of on a console. World of Warcraft would be on its Mists of Panderia expansion.",
+        "title": "2012: World of Warcraft and me"
+    },
+    {
+        "des": "In 2015 I was living in Madison due to my father getting his masters at UW. It was a great time and I would make several friends at my school who would convince me to create a Steam account for myself. Steam would end up becoming a service I loved using, pushing me further into computer gaming and eventually causing me to get a gaming computer.",
+        "title": "2015: My steam account"
+    },
+    {
+        "des": "In 2018 I would return to Madison for high school around where I went 3 years prior. I would end up joining the school's e-sports team, specifically the Super Smash Bros team. While I have drifted away from playing games competitively, the friends I made there are still ones I enjoy hanging out with, be it playing games or something else entirely.",
+        "title": "2018: Joining the high school E-sports team"
+    },
+    {
+        "des": "In the current year of 2026, I still avidly play video games alongside studying to obtain a degree in Computer Sciences at UW-Madison. I play all sorts of video games from First Person Shooters to 2D platformers, enjoying them all. Overall video games are something I am passionate about, and they are the things that drew me to Computer Science as a degree.",
+        "title": "2026: Where we are today"
     }
 
 ]

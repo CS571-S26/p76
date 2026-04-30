@@ -4,7 +4,6 @@ import { Card, Carousel, Container } from "react-bootstrap";
 import gameHistory from "./data/gameHistory.json";
 
 function GameHistory() {
-    //Add a carousel and a card thats text changes depending on the carousel.
     const [carouselSlide, setSlide] = useState(0);
     const images = import.meta.glob('/src/assets/GameHistoryImgs/*', {
         eager: true,
@@ -17,8 +16,8 @@ function GameHistory() {
                 {Object.entries(images).map(([path, src]) => {
                     const fileName = path.split('/').pop().replace(/\.[^/.]+$/, '');
                     return (
-                        <Carousel.Item key={path} style={{ backgroundColor: 'black' }}>
-                            <img src={src} alt={fileName} style={{width: '900px', height: "auto"}}/>
+                        <Carousel.Item key={path} style={{ backgroundColor: 'black', }}>
+                            <img src={src} alt={fileName} style={{width: '600px', height: "400px",  objectFit: 'contain'}}/>
                         </Carousel.Item>
                     );
                 })}
